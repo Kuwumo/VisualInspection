@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "windows-x64",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/../../../build/spdlog",
+      "cacheVariables": {
+        "SPDLOG_BUILD_SHARED": "ON",
+        "SPDLOG_INSTALL": "ON",
+        "SPDLOG_BUILD_EXAMPLE": "OFF",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/..",
+        "CMAKE_INSTALL_INCLUDEDIR": "include",
+        "CMAKE_INSTALL_LIBDIR": "lib",
+        "CMAKE_INSTALL_BINDIR": "bin"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "windows-x64",
+      "configuration": "Debug",
+      "targets": ["INSTALL"]
+    },
+    {
+      "name": "release",
+      "configurePreset": "windows-x64",
+      "configuration": "Release",
+      "targets": ["INSTALL"]
+    }
+  ]
+}
